@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "plugin:vue/essential"
+  ],
+  "rules": {
+    "indent": ["error", 4]
+  },
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  }
+}

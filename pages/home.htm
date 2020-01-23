@@ -1,0 +1,15 @@
+title = "Home"
+url = "/"
+layout = "default"
+is_hidden = 0
+==
+<div class="bg-blue-200 w-full h-screen" id="app">
+    <nav class="p-4">
+        <router-link to="/foo">Go to Foo</router-link>
+        <router-link to="/bar">Go to Bar</router-link>
+    </nav>
+    <main class="mt-6 p-6 border-t">
+        <h1 class="text-2xl font-bold">Welcome</h1>
+        <router-view></router-view>
+    </main>
+</div>

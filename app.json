@@ -1,0 +1,8 @@
+{
+  "assets": {
+    "app": [
+      "./assets/resources/js/app.js",
+      "./assets/resources/sass/app.scss"
+    ]
+  }
+}

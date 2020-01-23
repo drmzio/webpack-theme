@@ -1,0 +1,20 @@
+==
+<!DOCTYPE html>
+<html class="bg-gray-200" lang="en">
+<head>
+    <title>{{ this.page.title }} | {{ this.theme.config.name }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="{{ this.page.meta_title }}">
+    <meta name="description" content="{{ this.page.meta_description }}">
+
+    <link rel="stylesheet" href="{{ manifest('app.css')|app }}">
+    <script>window.resourceBasePath = "{{ 'assets/public'|theme }}/";</script>
+</head>
+<body class="antialiased">
+    {% page %}
+    <script type="text/javascript" src="{{ manifest('manifest.js')|app }}"></script>
+    <script type="text/javascript" src="{{ manifest('vendor.js')|app }}"></script>
+    <script type="text/javascript" src="{{ manifest('app.js')|app }}"></script>
+</body>
+</html>
