@@ -27,7 +27,7 @@ module.exports = {
         indent: 'postcss',
         plugins: [
           require('tailwindcss'),
-          require('autoprefixer')(config.settings.autoprefixer)
+          require('autoprefixer')
         ]
       }
     },

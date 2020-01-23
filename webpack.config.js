@@ -1,7 +1,6 @@
 const path = require('path');
 const isdev = require('isdev');
 const webpack = require('webpack');
-//const autoprefixer = require('autoprefixer');
 const glob = require('glob-all');
 
 const CopyPlugin = require('copy-webpack-plugin');
@@ -121,7 +120,7 @@ module.exports = {
   plugins: [
     new webpack.LoaderOptionsPlugin({ minimize: !isdev }),
     new MiniCssExtractPlugin(config.outputs.css),
-    new CleanPlugin(config.paths.public, { root: config.paths.root }),
+    new CleanPlugin(),
     new CopyPlugin([{
       context: config.paths.images,
       from: {
@@ -161,7 +160,7 @@ if (config.settings.browserSync) {
 }
 
 /**
- * Adds optimalizing plugins when
+ * Adds optimization plugins when
  * generating production build.
  */
 if (! isdev) {
@@ -172,14 +171,6 @@ if (! isdev) {
       }
     })
   );
-
-  /*module.exports.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      comments: isdev,
-      compress: { warnings: false },
-      sourceMap: isdev
-    })
-  );*/
 
   module.exports.plugins.push(
     new ImageminPlugin({
@@ -192,13 +183,13 @@ if (! isdev) {
   );
 
   module.exports.plugins.push(
-      new PurgeCssPlugin({
-        paths: glob.sync([
-          path.join(config.paths.root, 'pages/**/*.htm'),
-          path.join(config.paths.root, 'layouts/**/*.htm'),
-          path.join(config.paths.root, 'partials/**/*.htm'),
-        ], { nodir: true }),
-        defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-      })
+    new PurgeCssPlugin({
+      paths: glob.sync([
+        path.join(config.paths.root, 'pages/**/*.htm'),
+        path.join(config.paths.root, 'layouts/**/*.htm'),
+        path.join(config.paths.root, 'partials/**/*.htm'),
+      ], { nodir: true }),
+      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+    })
   );
 }

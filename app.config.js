@@ -75,7 +75,7 @@ module.exports = merge({
   /**
    * List of libraries which will be extracted
    *
-   * @type {Object}
+   * @type {Array}
    */
   extract: [
     'vue', 'vue-router'
@@ -102,9 +102,6 @@ module.exports = merge({
     sourceMaps: false,
     styleLint: {
       context: 'assets/resources'
-    },
-    autoprefixer: {
-      browsers: ['last 2 versions', '> 1%'],
     },
     browserSync: {
       host: env('BROWSERSYNC_HOST', 'localhost'),
